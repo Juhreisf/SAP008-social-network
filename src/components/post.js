@@ -1,10 +1,9 @@
 import { deletePost, editarPost, curtirPost } from '../lib/firestore.js';
 
 export default (post) => {
-  console.log(post);
-  const container = document.createElement('div');
-  const template = post.map(pt => {
-    return `
+	console.log(post);
+	const container = document.createElement('div');
+	const template = post.map((pt) => `
     <section id="section-postado" class="section-postado">
       <div class="postado">
         <form class="form-postado">
@@ -26,55 +25,54 @@ export default (post) => {
           </div>
       </div>
      </section>
-`;
-  }).join("");
+`).join('');
 
-  container.innerHTML = template;
-  const postArea = document.getElementById('posts');
-  const postDelete = container.querySelectorAll('.botaoDeletar');
-  const postEditar = container.querySelectorAll('.botaoEditar');
-  const postCurtir = container.querySelectorAll('.botaoCurtir');
+	container.innerHTML = template;
+	const postArea = document.getElementById('posts');
+	const postDelete = container.querySelectorAll('.botaoDeletar');
+	const postEditar = container.querySelectorAll('.botaoEditar');
+	const postCurtir = container.querySelectorAll('.botaoCurtir');
 
-  postDelete.forEach((e) =>{
-    e.addEventListener('click',(e) =>{
-      const postId = e.target.dataset.id;
-      console.log(postId)
-      deletePost(postId)
-        .then((result) =>{
-          document.location.reload(true)
-          console.log("delete")
-        })
-        .catch((error) =>{
-          console.log("deu ruim")
-        }) 
-    })
-  });
-  postEditar.forEach((e) =>{
-    e.addEventListener('click',(e) =>{
-      const postId = e.target.dataset.id;
-      console.log(postId)
-      const textoNovo = prompt("editar seu post")
-      editarPost(postId, textoNovo)
-        .then((result) =>{
-          document.location.reload(true)
-          console.log("editar")
-        })
-        .catch((error) =>{
-          console.log("deu ruim")
-        }) 
-    })
-  });
-  postCurtir.forEach((e)=>{
-    e.addEventListener('click', (e) =>{
-      const postId = e.target.dataset.id;
-      curtirPost(postId)
-            .then((result) =>{
-                document.location.reload(true);
-            }).catch((error) =>{
-                console.log("deu ruim")
-            });
-    })
-  });
-  postArea.innerHTML = '';
-  postArea.appendChild(container);
+	postDelete.forEach((e) => {
+		e.addEventListener('click', (e) => {
+			const postId = e.target.dataset.id;
+			console.log(postId);
+			deletePost(postId)
+				.then((result) => {
+					document.location.reload(true);
+					console.log('delete');
+				})
+				.catch((error) => {
+					console.log('deu ruim');
+				});
+		});
+	});
+	postEditar.forEach((e) => {
+		e.addEventListener('click', (e) => {
+			const postId = e.target.dataset.id;
+			console.log(postId);
+			const textoNovo = prompt('editar seu post');
+			editarPost(postId, textoNovo)
+				.then((result) => {
+					document.location.reload(true);
+					console.log('editar');
+				})
+				.catch((error) => {
+					console.log('deu ruim');
+				});
+		});
+	});
+	postCurtir.forEach((e) => {
+		e.addEventListener('click', (e) => {
+			const postId = e.target.dataset.id;
+			curtirPost(postId)
+				.then((result) => {
+					document.location.reload(true);
+				}).catch((error) => {
+					console.log('deu ruim');
+				});
+		});
+	});
+	postArea.innerHTML = '';
+	postArea.appendChild(container);
 };

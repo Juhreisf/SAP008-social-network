@@ -1,9 +1,9 @@
 import { signOutUser } from '../lib/index.js';
 
 export default () => {
-  const container = document.createElement('div');
+	const container = document.createElement('div');
 
-  const template = `
+	const template = `
   <header class="nav-feed">
         <div class="div-menu">
             <button id="btn-menu"><img src="/img/menu.png" class="img-menu"</button>
@@ -13,6 +13,7 @@ export default () => {
                 <button type="submit" id="submit-pesquisar"><img src="/img/pesquisar.png" alt="botão de pesquisa"></button>
             </form>
             <button type="button" id="logout" class="botaoLogout">sair</button>
+            <p id="error"></p>
     </header>
 <main class="feed-desktop" id="feed">
   <section  id="section-pages">
@@ -231,25 +232,26 @@ export default () => {
   </section>
 </main>
       `;
-  container.innerHTML = template;
+	container.innerHTML = template;
 
-  const botaoLogout = container.querySelector('#logout');
+	const botaoLogout = container.querySelector('#logout');
 
-  botaoLogout.addEventListener('click', async() =>{
-    await signOutUser()
-    .then(() => {
-      window.location.hash = '#login';
-    })
-    .catch((error) => {
-      msgErro.innerHTML= 'erro ao sair';
-    });
-});
-const menu = container.querySelector('#btn-menu');
+	botaoLogout.addEventListener('click', async () => {
+		await signOutUser()
+			.then(() => {
+				window.location.hash = '#login';
+			})
+			.catch(() => {
+        const msgErro = container.querySelector('#error');
+				msgErro.innerHTML = 'erro ao sair';
+			});
+	});
+	const menu = container.querySelector('#btn-menu');
 
-menu.addEventListener('click', () => {
-  const busqueAjuda = container.querySelector('#feed');
-  busqueAjuda.classList.toggle('active');
-});
+	menu.addEventListener('click', () => {
+		const busqueAjuda = container.querySelector('#feed');
+		busqueAjuda.classList.toggle('active');
+	});
 
-  return container;
+	return container;
 };

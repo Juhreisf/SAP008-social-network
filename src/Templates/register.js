@@ -1,9 +1,9 @@
 import { createUser } from '../lib/index.js';
 
 export default () => {
-  const container = document.createElement('div');
+	const container = document.createElement('div');
 
-  const template = `
+	const template = `
     <section class='contenderRegister'section>
       <div class="navRegister">
   
@@ -47,21 +47,21 @@ export default () => {
         </main>
     </section>
         `;
-  container.innerHTML = template;
+	container.innerHTML = template;
 
-  const form = container.querySelector('#cadastrarRegister');
-  const email = container.querySelector('#usernameRegister');
-  const senha = container.querySelector('#passwordRegister');
-  const name = container.querySelector('#nameRegister');
-  
-  form.addEventListener('click', (e) => {
-    e.preventDefault();
-    createUser(name.value, email.value, senha.value)
-      .then(() => {
-        window.location.hash = '#feed';
-      })
-      .catch((error) => {
-      });
-  });
-  return container;
+	const form = container.querySelector('#cadastrarRegister');
+	const email = container.querySelector('#usernameRegister');
+	const senha = container.querySelector('#passwordRegister');
+	const name = container.querySelector('#nameRegister');
+
+	form.addEventListener('click', (e) => {
+		e.preventDefault();
+		createUser(name.value, email.value, senha.value)
+			.then(() => {
+				window.location.hash = '#feed';
+			})
+			.catch((error) => {
+			});
+	});
+	return container;
 };

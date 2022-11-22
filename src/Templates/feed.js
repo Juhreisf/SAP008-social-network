@@ -1,10 +1,10 @@
 import post from '../components/post.js';
-import { createPost, getPosts,} from '../lib/firestore.js';
+import { createPost, getPosts } from '../lib/firestore.js';
 import { signOutUser } from '../lib/index.js';
 
 export default () => {
-  const container = document.createElement('div');
-  const template = `
+	const container = document.createElement('div');
+	const template = `
     <header class="nav-feed">
         <div class="div-menu">
             <button id="btn-menu"><img src="/img/menu.png" class="img-menu"</button>
@@ -39,40 +39,40 @@ export default () => {
         </section>
     </main>
             `;
-  container.innerHTML = template;
+	container.innerHTML = template;
 
-  const caixaPost = container.querySelector('#caixa-de-post');
-  const botaoPost = container.querySelector('#submit-post');
-  const botaoLogout = container.querySelector('#logout');
-  
-  botaoPost.addEventListener('click', async (e) => {
-    e.preventDefault();
-    await createPost(caixaPost.value);
-    const posts = await getPosts()
-    post(posts);
-    console.log(posts);
-  });
-  async function listPosts(){
-    const posts = await getPosts()
-    post(posts);
-  }
-  listPosts();
+	const caixaPost = container.querySelector('#caixa-de-post');
+	const botaoPost = container.querySelector('#submit-post');
+	const botaoLogout = container.querySelector('#logout');
 
-  botaoLogout.addEventListener('click', async() =>{
-    await signOutUser()
-    .then(() => {
-      window.location.hash = '#login';
-    })
-    .catch((error) => {
-      msgErro.innerHTML= 'erro ao sair';
-    });
-});
-  const menu = container.querySelector('#btn-menu');
+	botaoPost.addEventListener('click', async (e) => {
+		e.preventDefault();
+		await createPost(caixaPost.value);
+		const posts = await getPosts();
+		post(posts);
+		console.log(posts);
+	});
+	async function listPosts() {
+		const posts = await getPosts();
+		post(posts);
+	}
+	listPosts();
 
-  menu.addEventListener('click', () => {
-    const feed = container.querySelector('#feed');
-    feed.classList.toggle('active');
-  });
+	botaoLogout.addEventListener('click', async () => {
+		await signOutUser()
+			.then(() => {
+				window.location.hash = '#login';
+			})
+			.catch((error) => {
+				msgErro.innerHTML = 'erro ao sair';
+			});
+	});
+	const menu = container.querySelector('#btn-menu');
 
-  return container;
+	menu.addEventListener('click', () => {
+		const feed = container.querySelector('#feed');
+		feed.classList.toggle('active');
+	});
+
+	return container;
 };

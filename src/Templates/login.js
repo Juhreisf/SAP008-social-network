@@ -1,9 +1,9 @@
 import { loginEmailPassword, signInGoogle } from '../lib/index.js';
 
 export default () => {
-  const container = document.createElement('div');
+	const container = document.createElement('div');
 
-  const template = `
+	const template = `
 
       <section class="content">
          <p id="msgErro"></p>
@@ -48,39 +48,39 @@ export default () => {
          </div>
       </section>
    `;
-  container.innerHTML = template;
+	container.innerHTML = template;
 
-  const login = container.querySelector('#botaoEntrar');
-  const email = container.querySelector('#email');
-  const password = container.querySelector('#password');
-  const btnGmail = container.querySelector('#btnGmail');
-  const msgErro = container.querySelector('#msgErro');
+	const login = container.querySelector('#botaoEntrar');
+	const email = container.querySelector('#email');
+	const password = container.querySelector('#password');
+	const btnGmail = container.querySelector('#btnGmail');
+	const msgErro = container.querySelector('#msgErro');
 
-  login.addEventListener('click', (e) => {
-    e.preventDefault();
+	login.addEventListener('click', (e) => {
+		e.preventDefault();
 
-    loginEmailPassword(email.value, password.value)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        console.log(user.name);
-        window.location.hash = '#feed';
-      })
-      .catch((error) => {
-        msgErro.innerHTML = 'usário ou senha incorretos';
-      });
-  });
+		loginEmailPassword(email.value, password.value)
+			.then((userCredential) => {
+				const user = userCredential.user;
+				console.log(user);
+				console.log(user.name);
+				window.location.hash = '#feed';
+			})
+			.catch((error) => {
+				msgErro.innerHTML = 'usário ou senha incorretos';
+			});
+	});
 
-  btnGmail.addEventListener('click', (e) => {
-    e.preventDefault();
-    signInGoogle()
-      .then(() => {
-        window.location.hash = '#feed';
-      })
-      .catch((error) => {
-        msgErro.innerHTML= 'erro ao entrar com Google';
-      });
-  });
+	btnGmail.addEventListener('click', (e) => {
+		e.preventDefault();
+		signInGoogle()
+			.then(() => {
+				window.location.hash = '#feed';
+			})
+			.catch(() => {
+				msgErro.innerHTML = 'erro ao entrar com Google';
+			});
+	});
 
-  return container;
+	return container;
 };
