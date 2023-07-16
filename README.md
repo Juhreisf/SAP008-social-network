@@ -75,6 +75,7 @@ Os testes foram desenvolvidos para testar as funções implementadas, as quais s
 
 ## 6. Deploy
 <a href="https://juhreisf.github.io/SAP008-social-network/src">Clique aqui</a> para navegar em nossa rede.
+Login para navegação: Usuário: lidia@gmail.com Senha: 12345678 ou use logar com o google 
 
 
 ***
