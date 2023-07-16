@@ -2,12 +2,15 @@
 
 ## Índice
 
-* [1. Resumo do projeto](#1-resumo-do-projeto)
-* [2. Planejamento](#2-planejamento)
-* [3. Histórias de Usuário](#3-histórias-de-usuário)
-* [4. Protótipo](#4-protótipo)
-* [5. Deploy](#5-deploy)
-* [6. Desenvolvedoras](#6-desenvolvedoras)
+- [Criando uma Rede Social](#criando-uma-rede-social)
+  - [Índice](#índice)
+  - [1. Resumo do projeto](#1-resumo-do-projeto)
+  - [2. Planejamento](#2-planejamento)
+  - [3. Histórias de Usuário](#3-histórias-de-usuário)
+  - [4. Protótipo](#4-protótipo)
+  - [5. Testes](#5-testes)
+  - [6. Deploy](#6-deploy)
+  - [7. Desenvolvedoras](#7-desenvolvedoras)
 
 ***
 
@@ -24,6 +27,7 @@ Application
 [_responsiva_](https://curriculum.laboratoria.la/pt/topics/css/02-responsive) (com mais de uma tela/ página) na
 qual seja possível **ler e escrever dados**.
 
+O projeto foi desenvolvido em **mobile first** para uma melhor responsividade e utilizamos o **firebase** como ferramenta de autenticação de usuário e banco de dados.
 ***
 
 ## 2. Planejamento
@@ -52,65 +56,36 @@ E a **terceira história de usuária** ela pede que possa pesquisar e se conecta
 
 Desenvolvemos nosso protótipo de alta fidelidade por meio da ferramento figma. Pensamos em um design clean, intuitivo e responsivo.
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/109049321/209585955-5626cacd-ef87-4171-892e-a1870787430b.png" width="700px"/>
+  
+***
+  
+<img src="https://user-images.githubusercontent.com/109049321/209585878-2c272d9d-bb81-4d4b-a134-d72fc852cd5a.png" width="700px"/>
+</div>
+
+
 ***
 
-## 5. Deploy
-Aqui está o link do nosso deploy para que possa navegar:
+## 5. Testes
 
+Os testes foram desenvolvidos para testar as funções implementadas, as quais são testadas as funções de autenticação de usuário do firebase e as funções do firestore.
+
+***
+
+## 6. Deploy
+<a href="https://andradeannac.github.io/SAP008-social-network/src/index.html">Clique aqui</a> para navegar em nossa rede.
 
 
 ***
 
-## 8. Desenvolvedoras
+## 7. Desenvolvedoras
+
+<div align="center">
+Clique para acessar o Linkedin das desenvolvedoras <br><br>
+:woman_technologist: Anna Clara Andrade(<a href="https://www.linkedin.com/in/andradeannac">@andradeannac</a>) <br><br>
+:woman_technologist: Juliana Reis(<a href="https://www.linkedin.com/in/juliana-dos-reis-fernandes">@juliana-dos-reis-fernandes</a>) <br><br>
+:woman_technologist: Barbara Scatolin(<a href="https://www.linkedin.com/in/barbara-scatolin/">@barbara-scatolin</a>) <br><br>
+</div>
 
 
-
-### Mobile first
-
-O conceito de [_mobile
-first_](https://tableless.com.br/mobile-first-a-arte-de-pensar-com-foco/) faz
-referência a um processo de desenho e desenvolvimento que parte de como se vê e
-como funciona uma aplicação primeiro em um dispositivo móvel e mais adiante se
-analisa como adaptar a aplicação à telas progressivamente maiores. Esta é uma
-contraposição ao modelo tradicional, no qual primeiro se desenha os websites (ou
-webapps) para desktops e depois os adaptam para telas menores.
-
-A motivação aqui é se assegurar que desde o começo sejam desenhadas telas
-_responsivas_. Dessa forma, começamos com a aparência e o comportamento do
-aplicativo em uma tela e ambiente móvel.
-
-### Múltiplas telas
-
-Em projetos anteriores, nossas aplicações eram compostas de apenas uma tela
-_principal_ (uma só _página_). Neste projeto, precisaremos dividir nossa
-interface em várias _views_ ou _pages_ e oferecer uma maneira de navegar entre
-essas telas. Esse problema pode ser resolvido de várias maneiras: com arquivos
-HTML independentes (cada um com seu próprio URL) e links tradicionais; mantendo
-na memória e renderizando condicionalmente (sem atualizar a página);
-[manipulando o histórico do
-navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_na_gador)
-com
-[`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
-Neste projeto, convidamos você a explorar opções e decidir sobre uma opção de
-implementação.
-
-### Gravação de dados
-
-Nos projetos anteriores, consumimos dados, mas ainda não tínhamos escrito dados
-(salvar alterações, criar dados, excluir, etc). Neste projeto, você precisará
-criar (salvar) novos dados, além de ler, atualizar e modificar os dados
-existentes. Esses dados podem ser salvos remotamente usando o
-[Firebase](https://firebase.google.com/).
-
-Outras:
-
-* [Mobile
-  First](https://tableless.com.br/mobile-first-a-arte-de-pensar-com-foco/)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman
-  Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
-* [Flexbox - CSS
-  Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [Módulos:
-  Export](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/export)
-* [Módulos:
-  Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
